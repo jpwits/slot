@@ -46,15 +46,17 @@ var game = new Slot({
         }
 
         game.on('start', function() {
-            // set spin values
+
             for (var i = 0; i < reelsCount; i++) {
+                // set spin values
                 for (var k = 0; k < 100; k++) {
                     game.reels.get(i).spinValues.push(parseInt(Math.random() * symbolsCount) + 1);
                 }
-            }
-            // set stop values
-            for (var i = 0; i < reelsCount; i++) {
-                game.reels.get(i).stopValues = [1, 1, 2, 3];
+                // set stop values
+
+                var lvr = game.reels.get(i).spinValues;
+                var lv = lvr.splice(lvr.length - (reelsPositions + 1) - 1, reelsPositions + 1);
+                game.reels.get(i).stopValues = lv;
             }
         });
 
