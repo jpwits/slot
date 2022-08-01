@@ -4,17 +4,19 @@ var gameHeight = 640;
 
 var game = new Slot({
     container: '#game-container',
+
+    //Jos, always use img on bit boundry everywhere!!
     resources: [
-        ['symbol-1', resourcesUrl + 'symbol-1.png'],
-        ['symbol-2', resourcesUrl + 'symbol-2.png'],
-        ['symbol-3', resourcesUrl + 'symbol-3.png'],
-        ['symbol-4', resourcesUrl + 'symbol-4.png'],
-        ['symbol-5', resourcesUrl + 'symbol-5.png'],
-        ['symbol-6', resourcesUrl + 'symbol-6.png'],
-        ['symbol-7', resourcesUrl + 'symbol-7.png'],
-        ['symbol-8', resourcesUrl + 'symbol-8.png'],
-        ['symbol-9', resourcesUrl + 'symbol-9.png'],
-        ['symbol-10', resourcesUrl + 'symbol-10.png'],
+        ['symbol-1', resourcesUrl + 'symbol-1x128.png'],
+        ['symbol-2', resourcesUrl + 'symbol-2x128.png'],
+        ['symbol-3', resourcesUrl + 'symbol-3x128.png'],
+        ['symbol-4', resourcesUrl + 'symbol-4x128.png'],
+        ['symbol-5', resourcesUrl + 'symbol-5x128.png'],
+        ['symbol-6', resourcesUrl + 'symbol-6x128.png'],
+        ['symbol-7', resourcesUrl + 'symbol-7x128.png'],
+        ['symbol-8', resourcesUrl + 'symbol-8x128.png'],
+        ['symbol-9', resourcesUrl + 'symbol-9x128.png'],
+        ['symbol-10', resourcesUrl + 'symbol-10x128.png'],
         ['btn-spin', resourcesUrl + 'button-spin.png'],
         ['background', resourcesUrl + 'SHS1_background.png'],
     ],
