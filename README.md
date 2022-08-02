@@ -34,7 +34,7 @@ function init(game) {
   game.on('start', function() {
     // populate reel with random spin values
     var symbolsCount = 3;
-    for (var i = 0; i < 14; i++) {
+    for (var i = 0; i < 100; i++) {
       reel.spinValues.push(parseInt(Math.random() * symbolsCount) + 1);
     }
     // stop (result) values
@@ -68,3 +68,12 @@ Uses hypothetical network.
 * [HTML](https://github.com/ktsalik/slot/blob/master/examples/network-example.html)
 * [JS](https://github.com/ktsalik/slot/blob/master/examples/network-example.js) 
 * [Live](http://htmlpreview.github.io/?https://github.com/ktsalik/slot/blob/master/examples/network-example.html)
+
+
+## Quick Start
+* node -v
+* npm --version  (npm install -g npm@latest)
+* npx -- version 
+* gulp --version (npm install --global gulp-cli)
+* npm init
+* npm install

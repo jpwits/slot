@@ -20,9 +20,9 @@ var Slot = function(params, gameWidth, gameHeight) {
   };
   this.settings = {
     speed: 0.2,
-    spinTime: 450,
-    spinTimeBetweenReels: 120,
-    reelBounceDuration: 300,
+    spinTime: 450000,
+    spinTimeBetweenReels: 12000,
+    reelBounceDuration: 3000,
     network: false,
   };
   this.waitForResult = false;

@@ -2,7 +2,7 @@
     "name": "slot",
     "version": "1.0.0",
     "description": "Web Slot Machine client on HTML5 using [PixiJS](https://www.pixijs.com).",
-    "main": "dist/slots.js",
+    "main": "examples\basic-example.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "build": "gulp buildJs"

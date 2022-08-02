@@ -48,18 +48,18 @@ var game = new Slot({
 
     // reels 5x3
     var reelsCount = 5;
-    var reelsPositions = 3;
+    var reelPositions = 3;
     var symbolsCount = 10;
     for (var i = 0; i < reelsCount; i++) {
       // create reel
-      var reel = game.reels.add(reelsPositions);
+      var reel = game.reels.add(reelPositions);
 
       // position reel
       reel.x = 381 + (i * 140) + (i * 10);
       reel.y = 118;
 
       // initial reel values
-      for (var k = 0; k < reelsPositions + 1; k++) {
+      for (var k = 0; k < reelPositions + 1; k++) {
         reel.values.push(parseInt(Math.random() * symbolsCount) + 1);
       }
     }

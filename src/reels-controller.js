@@ -55,12 +55,24 @@ Slot.ReelsController = function(game) {
             m.drawRect(0, 0, reel.symbols[0].width, reel.symbols[0].height * reel.positions);
             m.endFill();
 
+            var pl1 = reel.playLine1;
+            pl1.x = reel.container.x;
+            pl1.y = reel.container.y;
+            //pl1.clear();
+            //m.beginFill(0x000000);
+            //this code should go to reel and the the black background.
+            var borderWidth = 3;
+            var borderColor = 0xFFFFF;
+            pl1.lineStyle(borderWidth , borderColor);
+            pl1.drawRect(0, reel.symbols[0].height , reel.symbols[0].width, reel.symbols[1].height );
+            //pl1.endFill();
+
             active = reel.rolling == true || !isNaN(parseInt(reel.stopping));
 
             if (active) {
                 var reelStopTime = game.settings.spinTime + (reelIndex * game.settings.spinTimeBetweenReels);
                 if (rollingTime > reelStopTime) {
-                    reel.stop(); // FIXME: don't call stop multiple times
+                    reel.stop(); // FIXME: don't call stop multiple times ... timee calc here on base 
                 }
             }
         });
@@ -104,7 +116,7 @@ Slot.ReelsController.prototype.add = function(positions, symbolCount, symbolWidt
     });
 
     const labelStyle = Object.assign({}, baseStyle, { dropShadowColor: "#FFD700" });
-    const valueStyle = Object.assign({}, baseStyle, { dropShadowColor: "#fe2c54" });
+    const valueStyle = Object.assign({}, baseStyle, { dropShadowColor: "#C4B454" });
 
     const balLabel = new PIXI.Text('Balance :', labelStyle);
     balLabel.x = 150;
@@ -125,6 +137,7 @@ Slot.ReelsController.prototype.add = function(positions, symbolCount, symbolWidt
     var reel = new Slot.Reel(positions, symbolCount, symbolWidth, symbolHeight);
     this.engine.stage.addChild(reel.container);
     this.engine.stage.addChild(reel.mask);
+    this.engine.stage.addChild(reel.playLine1);
     this.engine.stage.addChild(balLabel);
     this.engine.stage.addChild(balance);
     this.engine.stage.addChild(betLabel);
