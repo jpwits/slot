@@ -85,7 +85,7 @@ Slot.ReelsController = function(game) {
 };
 
 Slot.ReelsController.prototype.add = function(positions, symbolCount, symbolWidth, symbolHeight) {
-    const pixiText = new PIXI.Text('pixi text');
+    const pixiText = new PIXI.Text('Balance:');
     pixiText.x = 50;
     pixiText.y = 100;
 
