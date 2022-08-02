@@ -85,14 +85,50 @@ Slot.ReelsController = function(game) {
 };
 
 Slot.ReelsController.prototype.add = function(positions, symbolCount, symbolWidth, symbolHeight) {
-    const pixiText = new PIXI.Text('Balance:');
-    pixiText.x = 50;
-    pixiText.y = 100;
+    const baseStyle = new PIXI.TextStyle({
+        fontFamily: 'Arial',
+        fontSize: 32,
+        fontStyle: 'italic',
+        fontWeight: 'bold',
+        fill: ['#ffffff', '#00ff99'], // gradient
+        stroke: '#4a1850',
+        strokeThickness: 5,
+        dropShadow: true,
+        dropShadowColor: '#FFD700',
+        dropShadowBlur: 4,
+        dropShadowAngle: Math.PI / 3,
+        dropShadowDistance: 6,
+        wordWrap: true,
+        wordWrapWidth: 440,
+        lineJoin: 'round',
+    });
+
+    const labelStyle = Object.assign({}, baseStyle, { dropShadowColor: "#FFD700" });
+    const valueStyle = Object.assign({}, baseStyle, { dropShadowColor: "#fe2c54" });
+
+    const balLabel = new PIXI.Text('Balance :', labelStyle);
+    balLabel.x = 150;
+    balLabel.y = 150;
+
+    const balance = new PIXI.Text('R 999.99', valueStyle);
+    balance.x = 320;
+    balance.y = 150;
+
+    const betLabel = new PIXI.Text('Bet :', labelStyle);
+    betLabel.x = 150;
+    betLabel.y = 200;
+
+    const betValue = new PIXI.Text('R 1.00', valueStyle);
+    betValue.x = 320;
+    betValue.y = 200;
 
     var reel = new Slot.Reel(positions, symbolCount, symbolWidth, symbolHeight);
     this.engine.stage.addChild(reel.container);
     this.engine.stage.addChild(reel.mask);
-    this.engine.stage.addChild(pixiText);
+    this.engine.stage.addChild(balLabel);
+    this.engine.stage.addChild(balance);
+    this.engine.stage.addChild(betLabel);
+    this.engine.stage.addChild(betValue);
     this.reels.push(reel);
     return reel;
 };
