@@ -77,3 +77,7 @@ Uses hypothetical network.
 * gulp --version (npm install --global gulp-cli)
 * npm init
 * npm install
+install live server
+Select-> Go Live 
+then launch 
+
