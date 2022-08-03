@@ -58,14 +58,11 @@ Slot.ReelsController = function(game) {
             var pl1 = reel.playLine1;
             pl1.x = reel.container.x;
             pl1.y = reel.container.y;
-            //pl1.clear();
-            //m.beginFill(0x000000);
-            //this code should go to reel and the the black background.
             var borderWidth = 3;
             var borderColor = 0xFFFFF;
-            pl1.lineStyle(borderWidth , borderColor);
-            pl1.drawRect(0, reel.symbols[0].height , reel.symbols[0].width, reel.symbols[1].height );
-            //pl1.endFill();
+            pl1.clear();
+            pl1.lineStyle(borderWidth, borderColor);
+            pl1.drawRect(0, reel.symbols[0].height, reel.symbols[0].width, reel.symbols[1].height);
 
             active = reel.rolling == true || !isNaN(parseInt(reel.stopping));
 
@@ -138,7 +135,7 @@ Slot.ReelsController.prototype.add = function(positions, symbolCount, symbolWidt
     this.engine.stage.addChild(reel.container);
     this.engine.stage.addChild(reel.mask);
     this.engine.stage.addChild(reel.playLine1);
-    this.engine.stage.addChild(balLabel);
+    this.engine.stage.addChild(balLabel); // multiple add, resizing
     this.engine.stage.addChild(balance);
     this.engine.stage.addChild(betLabel);
     this.engine.stage.addChild(betValue);
