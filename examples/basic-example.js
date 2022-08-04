@@ -4,8 +4,6 @@ var gameHeight = 640;
 
 var game = new Slot({
     container: '#game-container',
-
-    //Jos, always use img on bit boundry everywhere!!
     resources: [
         ['symbol-1', resourcesUrl + 'symbol-1x128.png'],
         ['symbol-2', resourcesUrl + 'symbol-2x128.png'],
@@ -50,12 +48,11 @@ var game = new Slot({
         game.on('start', function() {
             for (var i = 0; i < reelsCount; i++) {
                 // set spin values
-                game.reels.get(i).spinValues.length = 0;
+                game.reels.get(i).spinValues = [];
                 for (var k = 0; k < 300; k++) {
                     game.reels.get(i).spinValues.push(parseInt(Math.random() * symbolsCount) + 1);
                 }
                 // set stop values
-
                 var lvr = game.reels.get(i).spinValues;
                 var lv = lvr.splice(lvr.length - (reelPositions + 1) - 1, reelPositions + 1);
                 game.reels.get(i).stopValues = lv;
