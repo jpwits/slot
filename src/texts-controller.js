@@ -19,6 +19,13 @@ Slot.TextController = function(game) {
     }
     resizeAndPositionText();
 
+    PIXI.Ticker.shared.add(function(delta) {
+        _this.texts.forEach(function(text, textIndex) {
+            resizeAndPositionText();
+            text.render(textIndex);
+        });
+    });
+
     _this.texts.forEach(function(text, textIndex) {
         resizeAndPositionText();
         text.render(textIndex);
@@ -50,8 +57,9 @@ Slot.TextController.prototype.add = function(x, y, dropShadowColor, textVal) {
     fldText.x = x;
     fldText.y = y;
 
-    var text = new Slot.Text();
     this.engine.stage.addChild(fldText);
+
+    var text = new Slot.Text(x, y);
     this.texts.push(text);
     return text;
 };

@@ -4,7 +4,7 @@
  * @param {number} positions - Number of reel positions.
  */
 
-Slot.Text = function() {
+Slot.Text = function(x, y) {
     // this.positions = positions;
     this.values = [];
     this.symbols = [];
@@ -29,7 +29,9 @@ Slot.Text = function() {
     });
     const labelStyle = Object.assign({}, baseStyle, { dropShadowColor: "#FFD700" });
     const valueStyle = Object.assign({}, baseStyle, { dropShadowColor: "#C4B454" });
-    // for (var i = 0; i < positions + 1; i++) {
+    this.x = x;
+    this.y = y;
+    // for (var i = 0; i < positions + 1; i++) { //used in reels maybe adapt
     //     // var symbol = new PIXI.Sprite(PIXI.Texture.EMPTY);
     //     var symbol = new PIXI.Text('', labelStyle);
     //     this.container.addChild(symbol);
@@ -39,5 +41,4 @@ Slot.Text = function() {
 
 Slot.Text.prototype.render = function(textIndex) {
     var _this = this;
-
 };
