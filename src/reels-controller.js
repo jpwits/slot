@@ -58,14 +58,12 @@ Slot.ReelsController = function(game) {
             var pl1 = reel.playLine1;
             pl1.x = reel.container.x;
             pl1.y = reel.container.y;
-            //pl1.clear();
-            //m.beginFill(0x000000);
+            pl1.clear();
             //this code should go to reel and the the black background.
             var borderWidth = 3;
             var borderColor = 0xFFFFF;
             pl1.lineStyle(borderWidth , borderColor);
             pl1.drawRect(0, reel.symbols[0].height , reel.symbols[0].width, reel.symbols[1].height );
-            //pl1.endFill();
 
             active = reel.rolling == true || !isNaN(parseInt(reel.stopping));
 
