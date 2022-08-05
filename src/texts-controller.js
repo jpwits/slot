@@ -25,7 +25,7 @@ Slot.TextController = function(game) {
     });
 };
 
-Slot.TextController.prototype.add = function(x, y, labelText, valueText) {
+Slot.TextController.prototype.add = function(x, y, dropShadowColor, textVal) {
     const baseStyle = new PIXI.TextStyle({
         fontFamily: 'Arial',
         fontSize: 32,
@@ -44,30 +44,14 @@ Slot.TextController.prototype.add = function(x, y, labelText, valueText) {
         lineJoin: 'round',
     });
 
-    const labelStyle = Object.assign({}, baseStyle, { dropShadowColor: "#FFD700" });
-    const valueStyle = Object.assign({}, baseStyle, { dropShadowColor: "#C4B454" });
+    const textValStyle = Object.assign({}, baseStyle, { dropShadowColor: dropShadowColor });
 
-    const balLabel = new PIXI.Text(labelText, labelStyle);
-    balLabel.x = x;
-    balLabel.y = y;
-
-    const balance = new PIXI.Text(valueText, valueStyle);
-    balance.x = x + 170;
-    balance.y = y;
-
-    // const betLabel = new PIXI.Text('Bet :', labelStyle);
-    // betLabel.x = 150;
-    // betLabel.y = 200;
-
-    // const betValue = new PIXI.Text('R 1.00', valueStyle);
-    // betValue.x = 320;
-    // betValue.y = 200;
+    const fldText = new PIXI.Text(textVal, textValStyle);
+    fldText.x = x;
+    fldText.y = y;
 
     var text = new Slot.Text();
-    this.engine.stage.addChild(balLabel);
-    this.engine.stage.addChild(balance);
-    // this.engine.stage.addChild(betLabel);
-    // this.engine.stage.addChild(betValue);
+    this.engine.stage.addChild(fldText);
     this.texts.push(text);
     return text;
 };

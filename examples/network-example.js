@@ -64,7 +64,8 @@ var game = new Slot({
             }
         }
 
-        var text = game.texts.add(150, 150, "Balance : ", " R 999.99")
+        var text = game.texts.add(150, 150, "#FFD700", "Balance : ")
+        var text = game.texts.add(320, 150, "#C4B454", " R 999.99")
 
         game.on('start', function() {
             for (var i = 0; i < reelsCount; i++) {
