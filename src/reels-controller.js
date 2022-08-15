@@ -12,24 +12,25 @@ Slot.ReelsController = function(game) {
 
     var _this = this;
 
-    function resizeAndPosition() {
+    function resizeAndPositionReel(reel, reelIndex) {
         _this.reels.forEach(function(reel, reelIndex) {
-            reel.container.x = (reel.x * game.engine.renderer.view.width) / game.engine.width;
-            reel.container.y = (reel.y * game.engine.renderer.view.height) / game.engine.height;
+            var scaleWidth = (game.engine.renderer.view.width / game.engine.width);
+            var scaleHeight = (game.engine.renderer.view.height / game.engine.height);
+            reel.container.x = reel.x * scaleWidth;
+            reel.container.y = reel.y * scaleHeight;
             reel.symbols.forEach(function(symbol) {
-                symbol.scale.x = game.engine.renderer.view.width / game.engine.width;
-                symbol.scale.y = game.engine.renderer.view.height / game.engine.height;
+                symbol.scale.x = scaleWidth;
+                symbol.scale.y = scaleHeight;
             });
         });
     }
-    resizeAndPosition();
-
+    resizeAndPositionReel();
     var rollingTime = 0;
 
     PIXI.Ticker.shared.add(function(delta) {
         var active = false;
         _this.reels.forEach(function(reel, reelIndex) {
-            resizeAndPosition();
+            resizeAndPositionReel(reel, reelIndex);
 
             reel.render(game.settings.speed, game.settings.reelBounceDuration, reelIndex);
 
@@ -63,8 +64,8 @@ Slot.ReelsController = function(game) {
             //this code should go to reel and the the black background.
             var borderWidth = 3;
             var borderColor = 0xFFFFF;
-            pl1.lineStyle(borderWidth , borderColor);
-            pl1.drawRect(0, reel.symbols[0].height , reel.symbols[0].width, reel.symbols[1].height );
+            pl1.lineStyle(borderWidth, borderColor);
+            pl1.drawRect(0, reel.symbols[0].height, reel.symbols[0].width, reel.symbols[1].height);
             //pl1.endFill();
 
             active = reel.rolling == true || !isNaN(parseInt(reel.stopping));
