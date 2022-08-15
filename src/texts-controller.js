@@ -17,6 +17,8 @@ Slot.TextController = function(game) {
                 symbol.scale.x = scaleWidth;
                 symbol.scale.y = scaleHeight;
             });
+            text.x = text.container.x;
+            text.y = text.container.y;
             text.render(textIndex);
         });
     };
@@ -53,7 +55,7 @@ Slot.TextController.prototype.add = function(x, y, dropShadowColor, textVal) {
 
     this.engine.stage.addChild(fldText);
 
-    var text = new Slot.Text(x, y);
+    var text = new Slot.Text(x, y, dropShadowColor, textVal);
     this.texts.push(text);
     return text;
 };

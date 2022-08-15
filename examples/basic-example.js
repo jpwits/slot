@@ -16,7 +16,7 @@ var game = new Slot({
         ['symbol-9', resourcesUrl + 'symbol-9x128.png'],
         ['symbol-10', resourcesUrl + 'symbol-10x128.png'],
         ['btn-spin', resourcesUrl + 'SLOT-Machine-handle.gif'],
-       // ['btn-spin', resourcesUrl + 'button-spin.png'],
+        // ['btn-spin', resourcesUrl + 'button-spin.png'],
         ['background', resourcesUrl + 'SHS1_background.png'],
     ],
     settings: {
@@ -46,8 +46,13 @@ var game = new Slot({
             }
         }
 
-        var text = game.texts.add(150, 150, "#FFD700", "Balance : ")
-        var text = game.texts.add(320, 150, "#C4B454", " R 999.99")
+        game.texts.add(150, 150, "#FFD700", "Balance : ");
+        game.texts.add(320, 150, "#C4B454", " R 999.99");
+
+        game.texts.add(150, 250, "#FFD700", "[i]");
+
+        game.texts.add(200, 250, "#FFD700", "R0.75");
+        game.texts.add(200, 200, "#FFD700", "Bet");
 
         game.on('start', function() {
             for (var i = 0; i < reelsCount; i++) {

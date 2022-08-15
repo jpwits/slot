@@ -36,6 +36,8 @@ var game = new Slot({
         // ['btn-spin', resourcesUrl + 'button-spin.png'],
         ['btn-spin', resourcesUrl + 'SLOT-Machine-handle.gif'],
         ['background', resourcesUrl + 'SHS1_background.png'],
+        ['btn-info', resourcesUrl + 'btn-infox32.png'],
+        ['btn-betLevel', resourcesUrl + 'btn_plusx32.png']
     ],
     settings: {
         speed: 0.17,
@@ -65,8 +67,14 @@ var game = new Slot({
             }
         }
 
-        game.texts.add(150, 150, "#FFD700", "Balance : ")
-        game.texts.add(320, 150, "#C4B454", " R 999.99")
+        game.texts.add(150, 150, "#FFD700", "Balance : ");
+        game.texts.add(320, 150, "#C4B454", " R 999.99");
+
+        game.texts.add(750, 920, "#FFD700", "Bet");
+        game.texts.add(730, 850, "#FFD700", "R 0.75");
+
+        game.texts.add(900, 920, "#FFD700", "Bet Level");
+        game.texts.add(1100, 850, "#FFD700", "1");
 
         game.on('start', function() {
             for (var i = 0; i < reelsCount; i++) {
@@ -87,15 +95,21 @@ var game = new Slot({
             game.result(response.result);
         };
 
+        //These should all be relative x, y!
         var btnPlay = game.sprite('btn-spin');
         btnPlay.x = 381 + (4.44 * 140) + 108;
         btnPlay.y = -164 + (3 * 140);
         btnPlay.action = Slot.ACTION.PLAY;
 
-        // var btnPlay = game.sprite('btn-spin');
-        // btnPlay.x = 381 + (4.44 * 140);
-        // btnPlay.y = 100 + (3 * 140);
-        // btnPlay.action = Slot.ACTION.PLAY;
+        var btnInfo = game.sprite('btn-info');
+        btnInfo.x = 381;
+        btnInfo.y = 520;
+        btnInfo.action = Slot.ACTION.info;
+
+        var btnInfoLvl = game.sprite('btn-betLevel');
+        btnInfoLvl.x = 530;
+        btnInfoLvl.y = 514;
+        btnInfoLvl.action = Slot.ACTION.PlusMin;
 
         window.addEventListener('keydown', function(e) {
             if (e.keyCode == 32) {
