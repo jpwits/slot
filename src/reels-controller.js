@@ -13,18 +13,15 @@ Slot.ReelsController = function(game) {
     var _this = this;
 
     function resizeAndPositionReel(reel, reelIndex) {
-        _this.reels.forEach(function(reel, reelIndex) {
-            var scaleWidth = (game.engine.renderer.view.width / game.engine.width);
-            var scaleHeight = (game.engine.renderer.view.height / game.engine.height);
-            reel.container.x = reel.x * scaleWidth;
-            reel.container.y = reel.y * scaleHeight;
-            reel.symbols.forEach(function(symbol) {
-                symbol.scale.x = scaleWidth;
-                symbol.scale.y = scaleHeight;
-            });
+        var scaleWidth = (game.engine.renderer.view.width / game.engine.width);
+        var scaleHeight = (game.engine.renderer.view.height / game.engine.height);
+        reel.container.x = reel.x * scaleWidth;
+        reel.container.y = reel.y * scaleHeight;
+        reel.symbols.forEach(function(symbol) {
+            symbol.scale.x = scaleWidth;
+            symbol.scale.y = scaleHeight;
         });
     }
-    resizeAndPositionReel();
     var rollingTime = 0;
 
     PIXI.Ticker.shared.add(function(delta) {
