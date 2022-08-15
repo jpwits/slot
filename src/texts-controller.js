@@ -7,7 +7,7 @@ Slot.TextController = function(game) {
 
     var _this = this;
 
-    function resizeAndPositionText() {
+    function resizeAndPositionText(rerender) {
         _this.texts.forEach(function(text, textIndex) {
             text.container.x = (text.x * game.engine.renderer.view.width) / game.engine.width;
             text.container.y = (text.y * game.engine.renderer.view.height) / game.engine.height;
@@ -15,21 +15,18 @@ Slot.TextController = function(game) {
                 symbol.scale.x = game.engine.renderer.view.width / game.engine.width;
                 symbol.scale.y = game.engine.renderer.view.height / game.engine.height;
             });
+            if (rerender == true) {
+                text.render(textIndex);
+            }
         });
     }
-    resizeAndPositionText();
+    //resizeAndPositionText(false);
 
     PIXI.Ticker.shared.add(function(delta) {
-        _this.texts.forEach(function(text, textIndex) {
-            resizeAndPositionText();
-            text.render(textIndex);
-        });
+        resizeAndPositionText(true);
     });
 
-    _this.texts.forEach(function(text, textIndex) {
-        resizeAndPositionText();
-        text.render(textIndex);
-    });
+    //resizeAndPositionText(true);
 };
 
 Slot.TextController.prototype.add = function(x, y, dropShadowColor, textVal) {

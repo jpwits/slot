@@ -31,12 +31,6 @@ Slot.Text = function(x, y) {
     const valueStyle = Object.assign({}, baseStyle, { dropShadowColor: "#C4B454" });
     this.x = x;
     this.y = y;
-    // for (var i = 0; i < positions + 1; i++) { //used in reels maybe adapt
-    //     // var symbol = new PIXI.Sprite(PIXI.Texture.EMPTY);
-    //     var symbol = new PIXI.Text('', labelStyle);
-    //     this.container.addChild(symbol);
-    //     this.symbols.push(symbol);
-    // }
 };
 
 Slot.Text.prototype.render = function(textIndex) {

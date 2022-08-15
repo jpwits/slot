@@ -33,7 +33,8 @@ var game = new Slot({
         ['symbol-8', resourcesUrl + 'symbol-8x128.png'],
         ['symbol-9', resourcesUrl + 'symbol-9x128.png'],
         ['symbol-10', resourcesUrl + 'symbol-10x128.png'],
-        ['btn-spin', resourcesUrl + 'button-spin.png'],
+        // ['btn-spin', resourcesUrl + 'button-spin.png'],
+        ['btn-spin', resourcesUrl + 'SLOT-Machine-handle.gif'],
         ['background', resourcesUrl + 'SHS1_background.png'],
     ],
     settings: {
@@ -87,9 +88,14 @@ var game = new Slot({
         };
 
         var btnPlay = game.sprite('btn-spin');
-        btnPlay.x = 381 + (4.44 * 140);
-        btnPlay.y = 100 + (3 * 140);
+        btnPlay.x = 381 + (4.44 * 140) + 108;
+        btnPlay.y = -164 + (3 * 140);
         btnPlay.action = Slot.ACTION.PLAY;
+
+        // var btnPlay = game.sprite('btn-spin');
+        // btnPlay.x = 381 + (4.44 * 140);
+        // btnPlay.y = 100 + (3 * 140);
+        // btnPlay.action = Slot.ACTION.PLAY;
 
         window.addEventListener('keydown', function(e) {
             if (e.keyCode == 32) {
